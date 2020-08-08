@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class Coupon {
 
     // ATTRIBUTES
+    private int id;
     private String code;
     private double value;
     private LocalDate registrationDate;
@@ -13,9 +14,21 @@ public class Coupon {
     private CouponStatus status;
     private String description;
 
-    // CONSTRUCTOR
-    public Coupon(String code, double value, LocalDate registrationDate, LocalDate expirationDate,
+
+    // CONSTRUCTORS
+    public Coupon(String code, double value, LocalDate registrationDate,
+                  LocalDate expirationDate, String description) {
+        this(-1, code, value, registrationDate, expirationDate, description);
+    }
+
+    public Coupon(int id, String code, double value, LocalDate registrationDate,
+                  LocalDate expirationDate, String description) {
+        this(id, code, value, registrationDate, expirationDate, null, CouponStatus.ACTIVE, description);
+    }
+
+    public Coupon(int id, String code, double value, LocalDate registrationDate, LocalDate expirationDate,
                   LocalDate usageDate, CouponStatus status, String description) {
+        this.id = id;
         this.code = code;
         this.value = value;
         this.registrationDate = registrationDate;
@@ -81,6 +94,7 @@ public class Coupon {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     // TO_STRING
     @Override

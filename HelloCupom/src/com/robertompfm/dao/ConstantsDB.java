@@ -13,7 +13,7 @@ public final class ConstantsDB {
     //COUPONS
     public static final String DROP_COUPONS_TABLE = "DROP TABLE IF EXISTS " + COUPONS_TABLE;
     public static final String CREATE_COUPONS_TABLE = "CREATE TABLE IF NOT EXISTS " + COUPONS_TABLE +
-            " (_id INTEGER PRIMARY KEY, code TEXT NOT NULL UNIQUE, value INTEGER NOT NULL," +
+            " (_id INTEGER PRIMARY KEY, code TEXT NOT NULL UNIQUE, value DOUBLE NOT NULL," +
             " registration_date TEXT NOT NULL, expiration_date TEXT NOT NULL," +
             " usage_date TEXT, status TEXT NOT NULL, description TEXT)";
     public static final String INSERT_COUPON = "INSERT INTO " + COUPONS_TABLE +
@@ -26,5 +26,12 @@ public final class ConstantsDB {
             " WHERE status = ?";
     public static final String QUERY_COUPONS_BY_CODE = "SELECT * FROM " + COUPONS_TABLE +
             " WHERE code = ?";
+    public static final String QUERY_COUPONS_BY_EXPIRATION_DATE = "SELECT * FROM " + COUPONS_TABLE +
+            " WHERE expiration_date > ? AND expiration_date < ?";
+    public static final String UPDATE_COUPON = "UPDATE " + COUPONS_TABLE +
+            " SET code = ?, value = ?, expiration_date = ?, usage_date = ?, status = ?, description = ?" +
+            " WHERE code = ?";
+    public static final String UPDATE_COUPON_STATUS = "UPDATE " + COUPONS_TABLE +
+            " SET status = ? WHERE code = ?";
 
 }

@@ -18,8 +18,7 @@ public class CouponTest {
     @org.junit.Before
     public void setUp() throws Exception {
         coupon = new Coupon("ABC1234", 100.00, LocalDate.now(),
-                LocalDate.parse("2020-10-15", formatter), LocalDate.parse("2020-09-15", formatter),
-                CouponStatus.ACTIVE, "test coupon");
+                LocalDate.parse("2020-10-15", formatter), "test coupon");
     }
 
     @Test
