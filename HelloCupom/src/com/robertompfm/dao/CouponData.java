@@ -25,6 +25,7 @@ public class CouponData implements DataClass {
     private PreparedStatement updateCouponStatement;
     private PreparedStatement updateCouponStatusStatement;
 
+
     // CONSTRUCTOR
     public static CouponData getInstance() {
         return instance;
@@ -38,7 +39,7 @@ public class CouponData implements DataClass {
 
             dropCouponTableStatement = conn.prepareStatement(ConstantsDB.DROP_COUPONS_TABLE);
             createCouponTableStatement = conn.prepareStatement(ConstantsDB.CREATE_COUPONS_TABLE);
-            dropCouponTableStatement.execute();
+//            dropCouponTableStatement.execute();
             createCouponTableStatement.execute();
 
             queryAllCouponsStatement = conn.prepareStatement(ConstantsDB.QUERY_ALL_COUPONS);
@@ -82,6 +83,9 @@ public class CouponData implements DataClass {
             }
             if (updateCouponStatusStatement != null) {
                 updateCouponStatusStatement.close();
+            }
+            if (conn != null) {
+                conn.close();
             }
 
             return true;
@@ -212,7 +216,7 @@ public class CouponData implements DataClass {
         }
     }
 
-    // UPDATE STATUS OF ALL COUPONS
+    // UPDATE STATUS OF A COUPONS
     public boolean updateCouponStatus(Coupon coupon, CouponStatus status) {
         try {
             updateCouponStatusStatement.setString(1, coupon.getStatus().toString());

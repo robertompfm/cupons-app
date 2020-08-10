@@ -1,4 +1,5 @@
 package com.robertompfm.control;
 
-public class Controller {
+public class FilterController {
+
 }

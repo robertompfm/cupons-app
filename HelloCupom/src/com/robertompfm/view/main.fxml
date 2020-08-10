@@ -17,7 +17,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.robertompfm.control.Controller">
+<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.robertompfm.control.MainController">
     <top>
         <MenuBar maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" styleClass="grey-background">
             <Menu text="Cupom">
@@ -41,7 +42,7 @@
             <children>
                <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" spacing="10.0">
                   <children>
-                     <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
+                     <Button fx:id="addCouponBtn" onAction="#openAddCuponWindow" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
                         <graphic>
                            <FontAwesomeIcon glyphName="PLUS">
                               <styleClass>
@@ -57,7 +58,7 @@
                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </HBox.margin>
                      </Button>
-                     <Button alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
+                     <Button fx:id="editCouponBtn" onAction="#openEditCouponWindow" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
                         <graphic>
                            <FontAwesomeIcon glyphName="EDIT">
                               <styleClass>
@@ -73,7 +74,7 @@
                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </HBox.margin>
                      </Button>
-                     <Button alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
+                     <Button fx:id="viewCouponBtn" onAction="#openCouponInfoWindow" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
                         <graphic>
                            <FontAwesomeIcon glyphName="EYE">
                               <styleClass>
@@ -89,7 +90,7 @@
                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </HBox.margin>
                      </Button>
-                     <Button alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
+                     <Button fx:id="delCouponBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
                         <graphic>
                            <FontAwesomeIcon glyphName="TRASH">
                               <styleClass>
@@ -105,7 +106,7 @@
                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </HBox.margin>
                      </Button>
-                     <Button alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
+                     <Button onAction="#openFilterWindow" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
                         <graphic>
                            <FontAwesomeIcon glyphName="FILTER">
                               <styleClass>
@@ -133,7 +134,7 @@
            <content>
              <AnchorPane prefWidth="830.0">
                   <children>
-                        <TableView prefWidth="830.0" styleClass="grey-background">
+                        <TableView fx:id="table" prefWidth="830.0" styleClass="grey-background">
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
