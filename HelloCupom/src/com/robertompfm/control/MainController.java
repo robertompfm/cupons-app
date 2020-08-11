@@ -12,9 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -54,7 +54,9 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         couponManager = CouponManager.getInstance();
+        cellFactorySettings();
         feedbackLabel.setText("");
+
 
         loadTableView();
     }
@@ -123,7 +125,24 @@ public class MainController implements Initializable {
     }
 
 
+    private void cellFactorySettings() {
 
+        table.setRowFactory(row -> new TableRow<Coupon>() {
+            @Override
+            protected void updateItem(Coupon coupon, boolean b) {
+                super.updateItem(coupon, b);
 
+                if (coupon == null || b) {
+                    setStyle("");
+                } else {
+                    if (coupon.getStatus() == CouponStatus.EXPIRED) {
+                        setStyle("-fx-background-color: lightcoral;");
+                    } else {
+                        setStyle("");
+                    }
+                }
+            }
+        });
+    }
 
 }

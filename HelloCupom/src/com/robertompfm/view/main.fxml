@@ -24,7 +24,7 @@
             <Menu text="Cupom">
                 <items>
                     <MenuItem onAction="#openAddCuponWindow" text="Adicionar" />
-                    <MenuItem onAction="#openFilterWindow" text="Editar" />
+                    <MenuItem onAction="#openEditCouponWindow" text="Editar" />
                     <MenuItem onAction="#openCouponInfoWindow" text="Ver detalhes" />
                     <MenuItem onAction="#deleteCoupon" text="Remover" />
                 </items>
