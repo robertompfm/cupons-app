@@ -4,6 +4,7 @@ import com.robertompfm.Main;
 import com.robertompfm.dao.CouponData;
 import com.robertompfm.dao.CouponManager;
 import com.robertompfm.model.Coupon;
+import com.robertompfm.model.CouponStatus;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -45,10 +47,14 @@ public class MainController implements Initializable {
     @FXML
     Button delCouponBtn;
 
+    @FXML
+    Label feedbackLabel;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         couponManager = CouponManager.getInstance();
+        feedbackLabel.setText("");
 
         loadTableView();
     }
@@ -56,18 +62,25 @@ public class MainController implements Initializable {
     public void loadTableView() {
         couponManager.updateCoupons();
         table.setItems(couponManager.getCoupons());
+//        feedbackLabel.setText("");
     }
 
     @FXML
     public void openAddCuponWindow() throws IOException {
-        openNewWindow("/com/robertompfm/view/coupon_new.fxml");
+        feedbackLabel.setText("");
+        openNewWindow("/com/robertompfm/view/coupon_new.fxml", "Novo Cupom");
     }
 
     @FXML
     public void openEditCouponWindow() throws IOException {
         couponManager.setCurrentCoupon((Coupon) table.getSelectionModel().getSelectedItem());
-        if (couponManager.getCurrentCoupon() != null) {
-            openNewWindow("/com/robertompfm/view/coupon_edit.fxml");
+        if (couponManager.getCurrentCoupon() == null) {
+            feedbackLabel.setText("Você precisa selecionar um cupom");
+        } else if (couponManager.getCurrentCoupon().getStatus() == CouponStatus.EXPIRED) {
+            feedbackLabel.setText("Cupons expirados não podem ser editados");
+        } else {
+            feedbackLabel.setText("");
+            openNewWindow("/com/robertompfm/view/coupon_edit.fxml", "Editar Cupom");
         }
     }
 
@@ -75,20 +88,34 @@ public class MainController implements Initializable {
     public void openCouponInfoWindow() throws IOException {
         couponManager.setCurrentCoupon((Coupon) table.getSelectionModel().getSelectedItem());
         if (couponManager.getCurrentCoupon() != null) {
-            openNewWindow("/com/robertompfm/view/coupon_info.fxml");
+            feedbackLabel.setText("");
+            openNewWindow("/com/robertompfm/view/coupon_info.fxml", "Detalhes do Cupom");
+        } else {
+            feedbackLabel.setText("Você precisa selecionar um cupom");
+        }
+    }
+
+    @FXML
+    public void deleteCoupon() {
+        Coupon couponToDelete = ((Coupon) table.getSelectionModel().getSelectedItem());
+        if (couponToDelete != null) {
+            couponManager.deleteCoupon(couponToDelete);
+        } else {
+            feedbackLabel.setText("Você precisa selecionar um cupom");
         }
     }
 
     @FXML
     public void openFilterWindow() throws IOException {
-        openNewWindow("/com/robertompfm/view/filter.fxml");
+        feedbackLabel.setText("");
+        openNewWindow("/com/robertompfm/view/filter.fxml", "Filtrar Visualização");
     }
 
-    public void openNewWindow(String path) throws IOException {
+    private void openNewWindow(String path, String title) throws IOException {
         Stage primaryStage = Main.getStage();
         Parent root = FXMLLoader.load(getClass().getResource(path));
         newStage = new Stage();
-        newStage.setTitle("Novo cupom");
+        newStage.setTitle(title);
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(primaryStage);

@@ -44,9 +44,28 @@ public class CouponManager {
         updateCoupons();
     }
 
+    // EDIT COUPON
+    public void editCoupon(Coupon oldCoupon, Coupon newCoupon) {
+        data.open();
+        data.updateCoupon(oldCoupon, newCoupon);
+        data.close();
+        updateCoupons();
+    }
+
     // DELETE COUPON
     public void deleteCoupon(Coupon coupon) {
+        data.open();
+        data.removeCoupon(coupon);
+        data.close();
+        updateCoupons();
+    }
 
+    // SEARCH FOR COUPON
+    public Coupon searchCoupon(String code) {
+        data.open();
+        Coupon coupon = data.queryCouponByCode(code);
+        data.close();
+        return coupon;
     }
 }
 

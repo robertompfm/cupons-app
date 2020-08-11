@@ -204,7 +204,13 @@ public class CouponData implements DataClass {
             updateCouponStatement.setString(1, newCoupon.getCode());
             updateCouponStatement.setDouble(2, newCoupon.getValue());
             updateCouponStatement.setString(3, newCoupon.getExpirationDate().toString());
-            updateCouponStatement.setString(4, newCoupon.getUsageDate().toString());
+            String creationDate;
+            if (newCoupon.getUsageDate() == null) {
+                creationDate = "";
+            } else {
+                creationDate = newCoupon.getUsageDate().toString();
+            }
+            updateCouponStatement.setString(4, creationDate);
             updateCouponStatement.setString(5, newCoupon.getStatus().toString());
             updateCouponStatement.setString(6, newCoupon.getDescription());
             updateCouponStatement.setString(7, oldCoupon.getCode());

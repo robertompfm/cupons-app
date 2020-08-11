@@ -42,10 +42,7 @@ public class ViewCouponController implements Initializable {
         expirationDate.setValue(coupon.getExpirationDate());
         creationDate.setValue(coupon.getRegistrationDate());
         utilizationDatePicker.setValue(coupon.getUsageDate());
-
-//        if (coupon.getUsageDate() != null) {
-//            utilizationDatePicker.setValue(coupon.getUsageDate());
-//        }
+        statusTextField.setText(coupon.getStatus().toString());
         noteTextArea.setText(coupon.getDescription());
     }
 }

@@ -63,7 +63,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <DatePicker fx:id="expirationDate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+                  <DatePicker fx:id="expirationDatePicker" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -116,12 +116,12 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="340.0" prefHeight="50.0" prefWidth="500.0" spacing="30.0">
                <children>
-                  <Button onAction="#save" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" styleClass="btn-red" text="Cancelar">
+                  <Button onAction="#cancel" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" styleClass="btn-red" text="Cancelar">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button onAction="#cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" styleClass="btn-green" text="Salvar">
+                  <Button onAction="#save" alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" styleClass="btn-green" text="Salvar">
                      <font>
                         <Font size="16.0" />
                      </font>

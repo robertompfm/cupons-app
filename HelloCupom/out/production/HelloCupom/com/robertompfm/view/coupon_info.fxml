@@ -34,7 +34,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="codeTextField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="185.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -47,7 +47,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="valueTextField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -60,7 +60,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <DatePicker editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+            <DatePicker fx:id="creationDate" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="180.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -73,7 +73,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <DatePicker editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+            <DatePicker fx:id="expirationDate" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -86,7 +86,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <DatePicker editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+            <DatePicker fx:id="utilizationDatePicker" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="80.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -99,7 +99,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="statusTextField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
          </children>
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -109,7 +109,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextArea editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0">
+            <TextArea fx:id="noteTextArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0">
                <font>
                   <Font size="16.0" />
                </font>

@@ -21,6 +21,12 @@ public class Coupon {
         this(-1, code, value, registrationDate, expirationDate, description);
     }
 
+    public Coupon(String code, double value, LocalDate registrationDate, LocalDate expirationDate,
+                  LocalDate usageDate, CouponStatus status, String description) {
+        this(-1, code, value, registrationDate, expirationDate, usageDate, status, description);
+
+    }
+
     public Coupon(int id, String code, double value, LocalDate registrationDate,
                   LocalDate expirationDate, String description) {
         this(id, code, value, registrationDate, expirationDate, null, CouponStatus.ACTIVE, description);
