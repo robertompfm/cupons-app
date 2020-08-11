@@ -41,6 +41,26 @@ public class CouponManager {
     public ObservableList<Coupon> getCoupons() { return coupons; }
     public Coupon getCurrentCoupon() { return currentCoupon; }
 
+    public boolean isExpirationDateFilterActive() {
+        return isExpirationDateFilterActive;
+    }
+
+    public boolean isStatusFilterActive() {
+        return isStatusFilterActive;
+    }
+
+    public LocalDate getInitialDateFilter() {
+        return initialDateFilter;
+    }
+
+    public LocalDate getFinalDateFilter() {
+        return finalDateFilter;
+    }
+
+    public CouponStatus getStatusFilter() {
+        return statusFilter;
+    }
+
     // SETTERS
     public void setCurrentCoupon(Coupon newCoupon) { currentCoupon = newCoupon; }
 

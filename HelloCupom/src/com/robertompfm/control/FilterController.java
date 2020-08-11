@@ -38,15 +38,20 @@ public class FilterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         couponManager = CouponManager.getInstance();
-
         statusComboBox.getItems().addAll(
                 CouponStatus.ACTIVE,
                 CouponStatus.USED,
                 CouponStatus.EXPIRED
         );
 
+        expirationDateCheckBox.setSelected(couponManager.isExpirationDateFilterActive());
+        statusCheckBox.setSelected(couponManager.isStatusFilterActive());
         toggleExpirationDateCheckBox();
         toggleStatusCheckBox();
+        initialDatePicker.setValue(couponManager.getInitialDateFilter());
+        finalDatePicker.setValue(couponManager.getFinalDateFilter());
+        statusComboBox.setValue(couponManager.getStatusFilter());
+
         feedbackLabel.setText("");
     }
 
