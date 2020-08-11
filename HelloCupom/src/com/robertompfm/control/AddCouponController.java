@@ -149,6 +149,10 @@ public class AddCouponController implements Initializable {
             feedbackLabel.setText("Você nao preencheu a data de utilização");
             return false;
         }
+        if (utilizationDate.compareTo(LocalDate.now()) > 0) {
+            feedbackLabel.setText("Data de utilização não pode ser uma data futura");
+            return false;
+        }
         if (utilizationDate.compareTo(expirationDate) > 0) {
             feedbackLabel.setText("Data de utilização não pode ser posterior a validade");
             return false;

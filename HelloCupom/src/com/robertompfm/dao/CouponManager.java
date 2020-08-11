@@ -1,10 +1,13 @@
 package com.robertompfm.dao;
 
 import com.robertompfm.model.Coupon;
+import com.robertompfm.model.CouponStatus;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class CouponManager {
 
@@ -14,11 +17,23 @@ public class CouponManager {
     private ObservableList<Coupon> coupons;
     private Coupon currentCoupon;
 
+    private boolean isExpirationDateFilterActive;
+    private boolean isStatusFilterActive;
+    private LocalDate initialDateFilter;
+    private LocalDate finalDateFilter;
+    private CouponStatus statusFilter;
+
     // CONSTRUCTOR
     public CouponManager() {
         data = CouponData.getInstance();
         coupons = FXCollections.observableArrayList();
         currentCoupon = null;
+
+        isExpirationDateFilterActive = false;
+        isStatusFilterActive = false;
+        initialDateFilter = null;
+        finalDateFilter = null;
+        statusFilter = null;
     }
 
     // GETTERS
@@ -32,7 +47,14 @@ public class CouponManager {
     // UPDATE COUPONS
     public void updateCoupons() {
         data.open();
-        coupons.setAll(data.queryAllCoupons());
+        ArrayList<Coupon> queriedCoupons = data.queryAllCoupons();
+        if (isExpirationDateFilterActive) {
+            queriedCoupons = filterByExpirationDate(queriedCoupons);
+        }
+        if (isStatusFilterActive) {
+            queriedCoupons = filterByStatus(queriedCoupons);
+        }
+        coupons.setAll(queriedCoupons);
         data.close();
     }
 
@@ -66,6 +88,29 @@ public class CouponManager {
         Coupon coupon = data.queryCouponByCode(code);
         data.close();
         return coupon;
+    }
+
+    public void setExpirationDateFilter(boolean isActive, LocalDate initialDate, LocalDate finalDate) {
+        this.isExpirationDateFilterActive = isActive;
+        this.initialDateFilter = initialDate;
+        this.finalDateFilter = finalDate;
+    }
+
+    public void setStatusFilter(boolean isActive, CouponStatus status) {
+        this.isStatusFilterActive = isActive;
+        this.statusFilter = status;
+    }
+
+    private ArrayList<Coupon> filterByExpirationDate(ArrayList<Coupon> queriedCoupons) {
+        return queriedCoupons.stream().filter(
+                c -> ((c.getExpirationDate().compareTo(initialDateFilter) >= 0) &&
+                        (c.getExpirationDate().compareTo(finalDateFilter) <= 0)))
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    private ArrayList<Coupon> filterByStatus(ArrayList<Coupon> queriedCoupons) {
+        return queriedCoupons.stream().filter(c -> c.getStatus() == statusFilter)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }
 
