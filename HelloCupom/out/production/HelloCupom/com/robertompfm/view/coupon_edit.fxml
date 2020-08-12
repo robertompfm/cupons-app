@@ -12,9 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="650.0" prefWidth="500.0" styleClass="grey-background" stylesheets="@style.css"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.robertompfm.control.EditCouponController">
+<BorderPane prefHeight="650.0" prefWidth="500.0" styleClass="grey-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.robertompfm.control.EditCouponController">
     <center>
         <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" stylesheets="@style.css">
          <children>
@@ -37,7 +35,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="codeTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+                  <TextField fx:id="codeTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="COD1600" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="185.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -50,7 +48,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="valueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" />
+                  <TextField fx:id="valueTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="99.99" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
@@ -81,7 +79,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="235.0" prefHeight="30.0" prefWidth="500.0" spacing="10.0">
                <children>
-                  <CheckBox fx:id="utilizationCheckBox" onAction="#toggleUtilizationDatePicker" mnemonicParsing="false" text="Utilizado">
+                  <CheckBox fx:id="utilizationCheckBox" mnemonicParsing="false" onAction="#toggleUtilizationDatePicker" text="Utilizado">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -95,7 +93,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="noteTextArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0">
+                  <TextArea fx:id="noteTextArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" promptText="Descrição do cupom...">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -116,12 +114,12 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="340.0" prefHeight="50.0" prefWidth="500.0" spacing="30.0">
                <children>
-                  <Button onAction="#cancel" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" styleClass="btn-red" text="Cancelar">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="185.0" styleClass="btn-red" text="Cancelar">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button onAction="#save" alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" styleClass="btn-green" text="Salvar">
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="185.0" styleClass="btn-green" text="Salvar">
                      <font>
                         <Font size="16.0" />
                      </font>

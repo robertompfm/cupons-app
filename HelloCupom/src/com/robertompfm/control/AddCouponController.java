@@ -102,8 +102,20 @@ public class AddCouponController implements Initializable {
             feedbackLabel.setText("O campo código precisa ser preenchido");
             return false;
         }
-        if (!code.matches("[a-zA-Z]{3}[0-9]{4}")) {
-            feedbackLabel.setText("O código não está no formato correto");
+        if (!code.matches(".*[a-zA-Z]+.*")) {
+            feedbackLabel.setText("O código deve possuir ao menos uma letra");
+            return false;
+        }
+        if (!code.matches(".*[0-9]+.*")) {
+            feedbackLabel.setText("O código deve possuir ao menos um número");
+            return false;
+        }
+        if (!code.matches(".{7,}")) {
+            feedbackLabel.setText("Código deve ser composto de 7 ou mais caracteres");
+            return false;
+        }
+        if (!code.matches("[a-zA-Z0-9]{7,}")) {
+            feedbackLabel.setText("Código não pode ter caracteres especiais");
             return false;
         }
         if (!checkIfCodeIsAvailable(code)) {
