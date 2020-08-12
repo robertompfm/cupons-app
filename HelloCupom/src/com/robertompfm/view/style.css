@@ -16,6 +16,14 @@
     -fx-translate-y: 1px;
 }
 
+.btn-green:pressed {
+    -fx-translate-y: 1px;
+}
+
+.btn-red:pressed {
+    -fx-translate-y: 1px;
+}
+
 .grey-background {
     -fx-background-color: #f8fbfd;
 }
@@ -37,4 +45,12 @@
 .filter-frame {
     -fx-border-color: #ccc;
     -fx-border-width: 1;
+}
+
+#table .table-column {
+    -fx-alignment: CENTER;
+}
+
+#table .column-header-background .label {
+    -fx-text-fill: #3dcc9c;
 }

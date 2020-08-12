@@ -24,7 +24,7 @@
             <Menu text="Cupom">
                 <items>
                     <MenuItem onAction="#openAddCuponWindow" text="Adicionar" />
-                    <MenuItem onAction="#openFilterWindow" text="Editar" />
+                    <MenuItem onAction="#openEditCouponWindow" text="Editar" />
                     <MenuItem onAction="#openCouponInfoWindow" text="Ver detalhes" />
                     <MenuItem onAction="#deleteCoupon" text="Remover" />
                 </items>
@@ -122,6 +122,22 @@
                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </HBox.margin>
                      </Button>
+                     <Button alignment="CENTER" contentDisplay="CENTER" layoutX="265.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadTableView" prefHeight="25.0" prefWidth="25.0" styleClass="btn" stylesheets="@style.css">
+                        <graphic>
+                           <FontAwesomeIcon glyphName="REFRESH">
+                              <styleClass>
+                                 <String fx:value="btn-icon" />
+                                 <String fx:value="btn-fa" />
+                              </styleClass>
+                           </FontAwesomeIcon>
+                        </graphic>
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                     </Button>
                   </children>
                   <padding>
                      <Insets left="25.0" />
@@ -154,7 +170,7 @@
                                         <PropertyValueFactory property="expirationDate" />
                                     </cellValueFactory>
                                 </TableColumn>
-                                <TableColumn text="Situacao">
+                                <TableColumn text="Situação">
                                     <cellValueFactory>
                                         <PropertyValueFactory property="status" />
                                     </cellValueFactory>

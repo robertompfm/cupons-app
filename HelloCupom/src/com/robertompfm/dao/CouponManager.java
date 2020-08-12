@@ -67,13 +67,23 @@ public class CouponManager {
     // UPDATE COUPONS
     public void updateCoupons() {
         data.open();
+        // query all coupons
         ArrayList<Coupon> queriedCoupons = data.queryAllCoupons();
+        // update status of expired coupons
+        for (Coupon queriedCoupon : queriedCoupons) {
+            if ((queriedCoupon.getStatus() == CouponStatus.ACTIVE) &&
+                    (queriedCoupon.getExpirationDate().compareTo(LocalDate.now()) < 0)) {
+                data.updateCouponStatus(queriedCoupon, CouponStatus.EXPIRED);
+            }
+        }
+        // apply filters
         if (isExpirationDateFilterActive) {
             queriedCoupons = filterByExpirationDate(queriedCoupons);
         }
         if (isStatusFilterActive) {
             queriedCoupons = filterByStatus(queriedCoupons);
         }
+        // set observable list of coupons
         coupons.setAll(queriedCoupons);
         data.close();
     }
@@ -132,5 +142,6 @@ public class CouponManager {
         return queriedCoupons.stream().filter(c -> c.getStatus() == statusFilter)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
 }
 

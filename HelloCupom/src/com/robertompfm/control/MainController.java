@@ -61,10 +61,10 @@ public class MainController implements Initializable {
         loadTableView();
     }
 
+    @FXML
     public void loadTableView() {
         couponManager.updateCoupons();
         table.setItems(couponManager.getCoupons());
-//        feedbackLabel.setText("");
     }
 
     @FXML
@@ -137,6 +137,8 @@ public class MainController implements Initializable {
                 } else {
                     if (coupon.getStatus() == CouponStatus.EXPIRED) {
                         setStyle("-fx-background-color: lightcoral;");
+                    } else if (coupon.getExpirationDate().compareTo(LocalDate.now()) == 0) {
+                        setStyle("-fx-background-color: khaki;");
                     } else {
                         setStyle("");
                     }
