@@ -11,3 +11,8 @@ Desenvolvido utilizando as seguintes ferramentas:
 
 ### Autor
 - Roberto Mendes
+
+### Imagens
+![[main screen]()](images/main-window.png "Janela principal") 
+![[add coupon screen]()](images/novo-cupom.png "Novo cupom")
+![[filter screen]()](images/filtrar.png "Filtrar")
