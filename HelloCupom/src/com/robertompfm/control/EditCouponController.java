@@ -88,7 +88,7 @@ public class EditCouponController implements Initializable {
 
         // updated coupon
         double value = Double.parseDouble(valueStr);
-        LocalDate creationDate = coupon.getUsageDate();
+        LocalDate creationDate = coupon.getRegistrationDate();
         CouponStatus status;
         if (wasUsed) {
             status = CouponStatus.USED;
