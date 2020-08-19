@@ -29,7 +29,7 @@ public final class ConstantsDB {
     public static final String QUERY_COUPONS_BY_EXPIRATION_DATE = "SELECT * FROM " + COUPONS_TABLE +
             " WHERE expiration_date > ? AND expiration_date < ?";
     public static final String UPDATE_COUPON = "UPDATE " + COUPONS_TABLE +
-            " SET code = ?, value = ?, expiration_date = ?, usage_date = ?, status = ?, description = ?" +
+            " SET code = ?, value = ?, registration_date = ?, expiration_date = ?, usage_date = ?, status = ?, description = ?" +
             " WHERE code = ?";
     public static final String UPDATE_COUPON_STATUS = "UPDATE " + COUPONS_TABLE +
             " SET status = ? WHERE code = ?";
